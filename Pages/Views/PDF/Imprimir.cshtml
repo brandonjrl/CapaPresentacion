@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Generar PDF</h2>
+
+<!-- Botón para generar PDF -->
+<button id="btnGenerarPDF" class="btn btn-danger">
+    <i class="fas fa-file-pdf"></i> Generar PDF
+</button>
+
+<!-- Botón para imprimir pantalla -->
+<button id="btnImprimirPantalla" class="btn btn-primary">
+    <i class="fas fa-print"></i> Imprimir Pantalla
+</button>
+
+
+
+
+@section Scripts {
+    <!-- Script personalizado -->
+    <script src="@Url.Content("~/Scripts/Views/PDF.js")" type="text/javascript"></script>
+}

@@ -1,0 +1,73 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+
+@{
+    // Simulación de menú anidado
+    var menu = new List<dynamic>
+{
+new {
+    NombreMenu = "Botones",
+    oSubMenu = new List<dynamic>
+    {
+        new { NombreSubMenu = "PDF", Controlador = "PDF", Vista = "Imprimir" },
+    }
+},
+new {
+    NombreMenu = "Buscar",
+    oSubMenu = new List<dynamic>
+    {
+        new { NombreSubMenu = "Filtros", Controlador = "Filtro", Vista = "Index" },
+        new { NombreSubMenu = "FiltroDinamico", Controlador = "Filtro", Vista = "Dinamico" },
+    }
+},
+
+new{
+    NombreMenu = "Tabla",
+    oSubMenu = new List<dynamic>
+    {
+         new { NombreSubMenu = "Tabla", Controlador = "Tabla", Vista = "Index" },
+         new { NombreSubMenu = "TablaEdicion", Controlador = "Tabla", Vista = "TablaCRUD" }
+    }
+}
+};
+}
+
+
+@* LOGICA *@
+<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index", "Home")">
+            <i class="fas fa-home nav-icon"></i>
+            <p>Inicio</p>
+        </a>
+    </li>
+
+    @foreach (var menuList in menu)
+    {
+        <li class="nav-item" style="font-size:14px">
+            <a href="#" class="nav-link active">
+                <i>
+                    <img src="~/Content/imganes/folderFile.png" style="width:15px" />
+                </i>
+                <p>
+                    @menuList.NombreMenu
+                    <img class="right" src="~/Content/imganes/icons/icon-next.png" style="width:9px" />
+                </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+                @foreach (var subMenuList in menuList.oSubMenu)
+                {
+                    <li class="nav-item" style="font-size:12px">
+                        <a href="@Url.Action(subMenuList.Vista, subMenuList.Controlador)" class="nav-link">
+                            <i>
+                                <img src="~/Content/imganes/1902.png" style="width:20px" />
+                            </i>
+                            <p>@subMenuList.NombreSubMenu</p>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>

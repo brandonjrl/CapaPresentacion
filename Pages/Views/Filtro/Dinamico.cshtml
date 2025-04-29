@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Plantilla Reutilizable CRUD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Contenido principal -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card border-info">
+            <div class="card-header bg-info text-white">
+                Módulo CRUD Reutilizable
+            </div>
+            <div class="card-body">
+
+                <!-- Filtros -->
+                <div class="row" id="contenedorFiltros">
+                    <!-- Filtros generados dinámicamente -->
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-4">
+                        <button id="btnNuevo" type="button" class="btn btn-sm btn-success">
+                            <i class="fa fa-plus"></i> Agregar Nuevo
+                        </button>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <table id="tbdata" class="table table-bordered table-striped" style="width:100%">
+                            <thead>
+                                <tr id="dynamicHeaders"></tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para crear/editar -->
+<div class="modal fade" id="FormModal" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h5 class="modal-title">Formulario</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-dinamico">
+                    <!-- Campos generados dinámicamente -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cerrar</button>
+                <button id="btnGuardar" type="button" class="btn btn-sm btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/Views/FiltroDinamico.js"></script>
+}
