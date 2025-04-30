@@ -2350,6 +2350,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\View\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
